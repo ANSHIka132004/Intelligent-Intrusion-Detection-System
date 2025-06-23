@@ -54,3 +54,119 @@ Flask (API to serve the model)
 Python Libraries: Flask, scikit-learn, pandas, numpy, matplotlib, pickle-mixin
 Other Tools: Pipenv for virtual environment management, Docker for containerization
 Scripts: notebook.ipynb, model.py, predict.py
+
+Frontend Setup:
+
+Steps to Set Up and Run the Frontend in local:
+
+Open the project folder in Visual Studio Code.
+Click on Terminal->New Terminal from the menu on the top.
+
+1. Install Required Software:
+
+Install Node.js.
+
+Verify installation:
+
+  node -v
+  npm -v
+
+2. Initialize the Project:
+
+  Navigate to the frontend project directory
+
+  cd frontend
+
+3. Install dependencies:
+
+   npm install
+
+4. Run the Development Server:
+
+  Start the React development server
+
+  npm run dev
+
+  The frontend application should now be accessible at http://localhost:5173
+
+  UI will look as follows:
+
+  ![Screenshot 2025-06-05 054450](https://github.com/user-attachments/assets/2b1fbf4b-c7ba-433d-b611-5d2dbbb3eed0)
+
+
+5. Key Dependencies:
+
+   React.js: User interface components
+   Axios: Library for making HTTP requests (for communicating with the Flask backend)
+
+   (Note: If any error related to axios library being not accessible, kindly run this command in the terminal:  npm install axios. Then run frontend app by providing npm run dev)
+
+Backend Setup:
+
+Follow below steps to run backend app.
+
+Click on Terminal->New Terminal from the menu on the top.
+
+Please proceed the following steps in the terminal (Navigate to the path of the project)
+Prerequesite : Install Required Software:
+
+  Install Python (3.11 or later).
+
+  Install pipenv using below command:
+
+  pip install pipenv
+       
+1. Navigate to backend project folder
+
+  cd backend
+
+2. Steps to Create Pipfile and Pipfile.lock
+
+  pip install -r requirements.txt
+
+3. Verify the Pipenv Environment:
+
+  Activate the virtual environment:
+
+  pipenv shell
+
+4. Confirm installation of dependencies:
+
+  pip list
+
+5. Deactivate the environment when done
+
+  exit
+
+6. Export Dependencies to Pipfile.lock:
+
+The Pipfile.lock will be automatically generated when you run pipenv install.
+Verify that it exists in the backend directory.
+
+7. Steps to Dockerize the Backend
+
+   Run the following command to build the Docker image: (from Dockerfile)
+
+   docker build -t flask-predict-app .
+   ![Screenshot 2025-06-23 182128](https://github.com/user-attachments/assets/2b9e80d6-556c-4853-b5d6-2125714d89fc)
+
+
+9. Run the Docker Container:
+   
+  Start the Flask app inside the container:
+
+  docker run -p 5002:5002 flask-predict-app
+  ![Screenshot 2025-06-23 205628](https://github.com/user-attachments/assets/c4f36ce7-8fa9-4f3f-9e17-d1d2b75e37ce)
+![Screenshot 2025-06-23 205638](https://github.com/user-attachments/assets/d8716c6b-12d1-49ae-a426-00a5fa2f4e35)
+
+
+
+9. Test the backend API : Ensure the backend is running at
+
+    http://localhost:5002
+
+   Use tools like Postman or the frontend React app to test the /predict endpoint.
+![Screenshot 2025-06-05 052945](https://github.com/user-attachments/assets/62aa97a7-ed3e-4a53-b42d-98663a615883)
+
+
+
